@@ -1,0 +1,60 @@
+source ~/.base.vimrc
+
+set hidden
+set encoding=utf-8
+
+set ignorecase
+set incsearch
+set showtabline=0
+set wildmenu
+set wildignore=*.class,*.jar,*/target/,.git/,*.o,*.md,bin,/,**target/**
+set path+=**
+set shell=/bin/bash\ -i
+set wildignorecase
+set autoindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set showtabline=2
+
+""" solarized vim
+syntax enable
+let g:solarized_termtrans=1
+let g:solarized_termcolor=256
+let g:solarized_visibility="high"
+set background=dark
+colorscheme solarized
+""" solarized vim end
+
+""" fzf.vim
+set rtp+=~/.fzf
+nnoremap <C-p> :FZF<CR>
+nnoremap <C-b> :Buffers<CR>
+"""
+
+""" ctrl-p
+"let g:ctrlp_clear_cache_on_exit = 0
+
+" map ctrl+space to :CtrlPBuffer and move to the file tab
+"nnoremap <C-@> :CtrlPBuffer<CR><s-tab>
+
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlPCurWD'
+"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+""" ctr-p end
+
+""" vim-todo-lists
+let g:VimTodoListsDatesEnabled = 1
+let g:VimTodoListsDatesFormat = "%a %b %d, %Y"
+let g:VimTodoListsDoneItem = "- [✓]"
+
+:command Gb Git blame
+
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Load local vimrc
+source ~/.local.vimrc
