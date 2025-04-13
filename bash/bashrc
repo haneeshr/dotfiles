@@ -1,0 +1,39 @@
+export TERM=xterm-256color
+alias ll='ls -l'
+
+source ~/.git-completion.bash
+source ~/.docker-completion.bash
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH=$PATH:/usr/local/bin
+
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+export JAVA_HOME="`/usr/libexec/java_home -v 17`"
+
+# A function to show (current_git_branch) if in a git repo
+parse_git_branch() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local branch
+    branch=$(git branch --show-current 2>/dev/null)
+    if [[ -n "$branch" ]]; then
+      echo "($branch)"
+    fi
+  fi
+}
+
+# Define color codes
+GREEN="\[\033[32m\]"
+BLUE="\[\033[34m\]"
+YELLOW="\[\033[33m\]"
+MAGENTA="\[\033[35m\]"
+RESET="\[\033[0m\]"
+
+# Customize your prompt
+PS1="${GREEN}\u@\h${RESET}:"\
+"${BLUE}\w${RESET}\n"\
+"${YELLOW}\$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")${RESET} "\
+"${MAGENTA}\$(parse_git_branch)${RESET} \$ "
+
+
+source ~/.local.bashrc
