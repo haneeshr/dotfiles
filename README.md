@@ -11,3 +11,5 @@
 `brew install tmux`
 * Update `/etc/inputrc` with `set completion-ignore-case on`
 `brew install jq`
+* Install nerd-font
+`brew install --cask font-monaspace-nerd-font`

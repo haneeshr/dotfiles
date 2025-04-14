@@ -19,6 +19,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'iberianpig/tig-explorer.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
