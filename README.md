@@ -6,5 +6,8 @@
 ```
 
 * Install silversearch (ag)
+`brew install the_sliver_searcher`
 * Install tmux
+`brew install tmux`
 * Update `/etc/inputrc` with `set completion-ignore-case on`
+`brew install jq`
